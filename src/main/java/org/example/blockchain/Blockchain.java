@@ -4,14 +4,14 @@ import lombok.Getter;
 import org.example.exception.InvalidMiningException;
 import org.example.exception.PreviousHashMismatchException;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.example.util.StringUtil.mineBlock;
 
 @Getter
 public class Blockchain {
-    private final List<Block> blocks = new LinkedList<>();
+    private final List<Block> blocks = new ArrayList<>();
     private Block head;
 
     public Block generateBlock(int difficulty) {

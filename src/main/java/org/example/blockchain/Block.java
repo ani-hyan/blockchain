@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.example.util.StringUtil;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -13,7 +13,7 @@ public class Block {
 
     private final int id;
     private final String prevHash;
-    private final long createdAt;
+    private final LocalDateTime createdAt;
     private final int difficulty;
     private String hash;
 
@@ -21,15 +21,15 @@ public class Block {
         this.id = ++number;
         this.hash = StringUtil.applySha256(this);
         this.prevHash = prevHash;
-        this.createdAt = new Date().getTime();
+        this.createdAt = LocalDateTime.now();
         this.difficulty = difficulty;
     }
 
     public Block(int difficulty) {
         this.id = ++number;
         this.hash = StringUtil.applySha256(this);
-        this.prevHash = String.valueOf(0);
-        this.createdAt = new Date().getTime();
+        this.prevHash = "0";
+        this.createdAt = LocalDateTime.now();
         this.difficulty = difficulty;
     }
 

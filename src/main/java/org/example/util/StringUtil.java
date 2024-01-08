@@ -8,11 +8,13 @@ public class StringUtil {
 
     public static String applySha256(Block block) {
         return applySha256(
-                block.getHash() +
-                        block.getPrevHash() +
-                        block.getCreatedAt() +
-                        block.getId() +
-                        block.getDifficulty()
+                new StringBuilder()
+                .append(block.getHash())
+                .append(block.getPrevHash())
+                .append(block.getCreatedAt())
+                .append(block.getId())
+                .append(block.getDifficulty())
+                .toString()
         );
     }
 
